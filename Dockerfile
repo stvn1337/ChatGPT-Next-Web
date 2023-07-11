@@ -2,6 +2,14 @@ FROM node:18-alpine AS base
 
 FROM base AS deps
 
+ARG OPENAI_API_KEY
+ARG CODE
+ARG OPENAI_ORG_ID
+
+ENV OPENAI_API_KEY=$OPENAI_API_KEY
+ENV CODE=$CODE
+ENV OPENAI_ORG_ID=$OPENAI_ORG_ID
+
 RUN apk add --no-cache libc6-compat
 
 WORKDIR /app
